@@ -1,0 +1,2 @@
+remove .next folder             ->       rmdir /s /q .next
+again refresh folder autometic  ->       npm run dev

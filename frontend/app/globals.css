@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+/* ─── CSS Variables ─── */
+:root {
+  /* Colors */
+  --color-black: #000000;
+  --color-gray-400: #404040;
+  --color-gray-500: #7f7f7f;
+  --color-white: #ffffff;
+  
+  /* Fonts */
+  --font-serif: Georgia, Cambria, serif;
+  --font-sans: Inter, system-ui, sans-serif;
+  
+  /* Shadows */
+  --shadow-premium: 0 4px 30px rgba(0, 0, 0, 0.05);
+  --shadow-premium-lg: 0 10px 60px rgba(0, 0, 0, 0.08);
+  --shadow-premium-xl: 0 20px 80px rgba(0, 0, 0, 0.12);
+  
+  /* Transitions */
+  --transition-smooth: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-slow: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ─── Tailwind Theme ─── */
+@theme {
+  --color-black: var(--color-black);
+  --color-gray-400: var(--color-gray-400);
+  --color-gray-500: var(--color-gray-500);
+  
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  
+  --shadow-premium: var(--shadow-premium);
+  --shadow-premium-lg: var(--shadow-premium-lg);
+  --shadow-premium-xl: var(--shadow-premium-xl);
+}
+
+/* ─── Base Styles ─── */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    @apply bg-white text-black font-sans antialiased;
+  }
+}
+
+/* ─── Utility Classes ─── */
+@layer utilities {
+  .bg-premium {
+    background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%);
+  }
+  
+  .text-gray-400 {
+    color: var(--color-gray-400);
+  }
+  
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+  
+  .border-gray-400 {
+    border-color: var(--color-gray-400);
+  }
+  
+  .border-gray-500 {
+    border-color: var(--color-gray-500);
+  }
+  
+  .bg-gray-400 {
+    background-color: var(--color-gray-400);
+  }
+  
+  .bg-gray-500 {
+    background-color: var(--color-gray-500);
+  }
+  
+  .bg-black {
+    background-color: var(--color-black);
+  }
+  
+  .text-black {
+    color: var(--color-black);
+  }
+}
+
+/* ─── Animations ─── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 40px rgba(64, 64, 64, 0.05); }
+  50% { box-shadow: 0 0 80px rgba(64, 64, 64, 0.1); }
+}
+
+@keyframes cardEntrance {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes progressPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Animation Classes ─── */
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.watch-glow {
+  animation: glow 4s ease-in-out infinite;
+}
+
+.hand-smooth {
+  transition: transform 1s cubic-bezier(0.4, 2.08, 0.55, 0.44);
+}
+
+.card-entrance {
+  animation: cardEntrance 0.5s ease-out both;
+}
+
+.progress-pulse {
+  animation: progressPulse 1.5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+/* ─── Scrollbar Hide ─── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Scroll Bounce ─── */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+.animate-scroll-bounce {
+  animation: scrollBounce 1.8s ease-in-out infinite;
+}
+
+/* ─── Drag Hint ─── */
+@keyframes dragHint {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.85; }
+}
+
+.animate-drag-hint {
+  animation: dragHint 2.5s ease-in-out infinite;
+}
+
+/* ─── Spin 360 ─── */
+@keyframes spin360 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-360 {
+  animation: spin360 1s linear infinite;
+}
